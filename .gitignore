@@ -1,2 +1,69 @@
-# Node Modules
-node_modules
+# .NET Core
+bin/
+obj/
+out/
+*.log
+*.user
+*.lock.json
+*.ide
+
+# Visual Studio
+.vscode/
+.vs/
+.vscode/*
+.vscode/**
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.generated.cs
+
+# Windows image file caches
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Logs
+*.log
+
+# Git directories
+.git/
+.git/**
+
+# Package directories
+**/packages/*
+!packages/repositories.config
+
+# NPM packages
+node_modules/
+
+# Environment variables
+.env
+
+# Publish output
+.publish/
+
+# ASP.NET runtime bundles
+.bundle/
+.publish/
+
+# Others
+*.DS_Store
