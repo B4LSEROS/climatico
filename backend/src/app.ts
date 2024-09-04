@@ -8,7 +8,7 @@ class App {
     this.app = Express();
   }
 
-  // Configures the middelware for the server
+  // Configures the middleware for the server
   config() {
     this.app.use(Express.json());
   }
