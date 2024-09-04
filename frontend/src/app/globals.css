@@ -16,14 +16,26 @@
   }
 }
 
+.a1 {
+margin-bottom: -600px;
+margin-top: -112px;
+}
+
+
 body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Esto eliminará el scroll */
+  width: 100vw; /* Asegura que el ancho sea del 100% del viewport */
+  height: 100vh; /* Asegura que la altura sea del 100% del viewport */
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: 
+  
+    
+    url('/images/fondo1.png');
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el fondo */
+  background-position: cover; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 @layer utilities {
