@@ -25,7 +25,7 @@ margin-top: -112px;
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Esto eliminará el scroll */
+  overflow: hidden; /* Esto eliminará el scrolld */
   width: 100vw; /* Asegura que el ancho sea del 100% del viewport */
   height: 100vh; /* Asegura que la altura sea del 100% del viewport */
   color: rgb(var(--foreground-rgb));
