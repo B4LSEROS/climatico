@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center align-items p-24">
       <Grid />
-      <Image src={Sun2} alt="Sun image" width={50} height={24} />
+      <Image className="a1" src={Sun2} alt="Sun image" width={50} height={24} />
       <Image
         src={CloudwithRain}
         alt="Cloud with rain image"
