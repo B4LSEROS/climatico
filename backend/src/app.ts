@@ -1,9 +1,10 @@
 import { default as Express } from "express";
+import cors from "cors";
 import weatherController from "./controllers/weatherController";
 
 // Class for a server application using ExpressJS
 class App {
-  private app: any;
+  private app: Express.Application;
 
   constructor() {
     this.app = Express();
@@ -12,6 +13,7 @@ class App {
 
   // Configures the middleware for the server
   config() {
+    this.app.use(cors());
     this.app.use(Express.json());
     this.routes();
   }

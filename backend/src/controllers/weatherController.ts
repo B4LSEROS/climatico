@@ -11,11 +11,10 @@ dotenv.config();
  * @param res - Response object containging various weather info for the city
  */
 export default async function weatherController(req: Request, res: Response) {
-  const city = req.body.city;
+  const city = req.query.city as string;
 
   try {
-    const coordinates: { lat: number; lon: number } | undefined | null =
-      (await getGeoLocation(city)) || undefined;
+    const coordinates = await getGeoLocation(city);
 
     if (!coordinates) {
       return res.status(404).json({ message: "Coordinates not found" });
