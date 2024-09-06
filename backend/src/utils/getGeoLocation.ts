@@ -24,7 +24,7 @@ export default async function getGeoLocation(
     );
 
     if (response.data.length === 0) {
-      return null; // No se encontró la ciudad
+      return null;
     }
 
     const coordinates = {
