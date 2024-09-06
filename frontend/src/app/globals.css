@@ -32,7 +32,7 @@ body {
   background: 
   
     
-    url('/images/fondo1.png');
+    url('/background.png');
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el fondo */
   background-position: cover; /* Centra la imagen en el fondo */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
