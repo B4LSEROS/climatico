@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import WeatherInfo from "../types/WeatherInfo";
+import tempConverter from "../utils/tempConverter";
 import dotenv from "dotenv";
 import axios from "axios";
 
@@ -9,7 +11,10 @@ dotenv.config();
  * @param req - Request object containing latitude and longitude
  * @param res - Response object containing weather info
  */
-export default async function weatherController(req: Request, res: Response) {
+export default async function weatherController(
+  req: Request,
+  res: Response
+): Promise<Response> {
   const latitude = req.query.lat;
   const longitude = req.query.lon;
 
@@ -26,10 +31,13 @@ export default async function weatherController(req: Request, res: Response) {
       }
     );
 
-    return res.status(200).json({
+    const weatherData: WeatherInfo = {
       timezone: response.data.timezone,
-      current_weather: response.data.current.temp,
-    });
+      current_weather: tempConverter(response.data.current.temp),
+      feels_like: response.data.current.feels_like,
+    };
+
+    return res.status(200).json(weatherData);
   } catch (error) {
     console.error("Error fetching weather data:", error);
     return res.status(500).json({ message: "Internal server error" });
