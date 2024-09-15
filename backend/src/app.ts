@@ -1,6 +1,7 @@
 import { default as Express } from "express";
 import cors from "cors";
 import weatherController from "./controllers/weatherController";
+import geoLocationController from "./controllers/geoLocationController";
 
 // Class for a server application using ExpressJS
 class App {
@@ -21,6 +22,7 @@ class App {
   // Defines the routes for the server
   routes() {
     this.app.get("/currentWeather", weatherController);
+    this.app.get("/getGeoLocation", geoLocationController);
   }
 
   // Starts the server

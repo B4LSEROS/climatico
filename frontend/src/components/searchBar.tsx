@@ -1,18 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-export default function SearchBar(): React.ReactElement {
+export default function SearchBar({
+  setLocation,
+}: {
+  setLocation: (location: any) => void;
+}): React.ReactElement {
   const [searchInput, setSearchInput] = useState<string>("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const validateInput = () => {
-      if (searchInput.includes(" ")) {
-        window.alert("Invalid city");
-        return false;
-      }
-    };
 
-    if (validateInput()) setSearchInput("");
+    // Validate input
+    if (searchInput.trim() === "" || searchInput.includes(" ")) {
+      window.alert("Invalid city");
+      return;
+    }
+
+    try {
+      // Make API request
+      const response = await axios.get("http://localhost:3001/getGeoLocation", {
+        params: {
+          location: searchInput,
+        },
+      });
+
+      // Extract the data and set location
+      if (response.data) {
+        setLocation(response.data); // Adjust this line based on what setLocation expects
+      } else {
+        window.alert("Location not found");
+      }
+    } catch (error) {
+      console.error("Error fetching location:", error);
+      window.alert("Error fetching location. Please try again.");
+    }
   };
 
   return (
@@ -21,7 +43,7 @@ export default function SearchBar(): React.ReactElement {
       className="flex items-center justify-center w-full max-w-md mx-auto"
     >
       <input
-        className="w-full px-4 py-2 text-gray-700 bg-white border rounded-1-1g focus:outline-none focus:border-blue-500"
+        className="w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:outline-none focus:border-blue-500"
         placeholder="Search weather by city"
         required
         value={searchInput}
