@@ -35,6 +35,7 @@ export default async function weatherController(
       timezone: response.data.timezone,
       current_weather: tempConverter(response.data.current.temp),
       feels_like: response.data.current.feels_like,
+      description: response.data.current.weather[0].main,
     };
 
     return res.status(200).json(weatherData);
